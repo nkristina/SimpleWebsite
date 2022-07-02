@@ -21,7 +21,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         ?>
         <div class='header'><h1>Dodatni podaci za registraciju</h1></div>
         <h3>Molimo popunite sledece podatke:</h3>
-        <form action="" method="post" name="formaPrviLog" onsubmit="return proveriPrvi();">
+        <form action="prviLoginKod.php" method="post" name="formaPrviLog" onsubmit="return proveriPrvi();">
             <table>
                 <tr>
                     <td>Sifra delatnosti 1:</td>
@@ -37,7 +37,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </tr>
                 <tr>
                     <td>Da li je preduzece u sistemu PDV:</td>
-                    <td><input type="checkbox" name="pdv">DA</td>
+                    <td><input type="checkbox" name="pdv" value="1">DA</td>
                 </tr>
                 <tr>
                     <td>Poslovni ziro racini:</td>
@@ -68,12 +68,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <td><input type="text" name="racun[]"></td>
                 </tr>
                 <tr>
-                    <td>Broj kasi:</td>
+                    <td>Broj kasa:</td>
                     <td><input type="number" name="broj" value="1"></td>
                 </tr>
                 <tr>
                     <td>Tip 1:</td>
-                    <td><input type="text" name="tip[]"></td>
+                    <td><select name="tip[]">
+                        <option>Galeb Pro</option>
+                        <option>Galeb N910</option>
+                        <option>Galeb XP</option>
+                        </select></td>
                 </tr>
                 <tr>
                     <td>Objekat 1:</td>
@@ -81,7 +85,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </tr>
                 <tr>
                     <td>Tip 2:</td>
-                    <td><input type="text" name="tip[]"></td>
+                    <td><select name="tip[]">
+                        <option>Galeb Pro</option>
+                        <option>Galeb N910</option>
+                        <option>Galeb XP</option>
+                        </select></td>
                 </tr>
                 <tr>
                     <td>Objekat 2:</td>
@@ -89,21 +97,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </tr>
                 <tr>
                     <td>Tip 3:</td>
-                    <td><input type="text" name="tip[]"></td>
+                    <td><select name="tip[]">
+                        <option>Galeb Pro</option>
+                        <option>Galeb N910</option>
+                        <option>Galeb XP</option>
+                        </select></td>
                 </tr>
                 <tr>
                     <td>Objekat 3:</td>
                     <td><input type="text" name="objekat[]"></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="unesi" value="Unesi" class='dugme'></td>
+                    <td><input type="submit" name="unesi" value="Unesi i nastavi dalje" class='dugme'></td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
         </form>
-        <?php
-            include_once './prviLoginKod.php';
-        ?>
+        <p>Mocicete da menjate ove podatke i kasnije.</p>
         <div class='footer'>
         <h4>Hvala sto koristite nas sajt!</h4>
             <form action='logout.php' method='post'>

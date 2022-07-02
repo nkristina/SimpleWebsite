@@ -110,6 +110,38 @@ function proveriLoz(){
     return true;   
 }
 
-document.on('click', '.add_field', function() {
-  '<input type="text" class="input" name="field[]" value="">'.insertAfter('.input:last');
-})
+function proveriPrvi(){
+    var sifra1 = document.formaPrviLog.elements['sifra[]'];
+    if (sifra1[0].value==''){
+        alert("Niste uneli sifru delatnosti");
+        return false;
+    }
+    
+    var racuni = document.formaPrviLog.elements['racun[]'];
+    if (racuni[0].value==''){
+        alert("Niste uneli racun");
+        return false;
+    }
+    var regerac = /^\d{3}-\d{12}-\d{2}$/;
+    for(var i=0; racuni.length; i++){
+        if(!regerac.test(racuni[i].value) && racuni[i].value!='')
+        {
+            alert("Broj racuna nije u dobrom formatu");
+            return false;
+        }
+    }
+    
+    var banke = document.formaPrviLog.elements['banka[]'];
+    if (banke[0].value==''){
+        alert("Niste uneli banku");
+        return false;
+    }
+    
+    var lok = document.formaPrviLog.elements['objekat[]'];
+    if (lok[0].value==''){
+        alert("Niste uneli lokaciju");
+        return false;
+    }
+
+    return true;
+}
