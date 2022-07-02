@@ -1,0 +1,106 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 30, 2022, 7:13:30 PM
+    Author     : kristinanikolic
+*/
+
+.header {
+    height: 50px;
+    width: 100%;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    background-color: lightblue;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+    color: darkblue;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 25px;
+    color: darkblue;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: darkblue;
+}
+
+h4 {
+    font-weight: bold;
+    color: darkblue;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+table{
+    width: 35%;
+}
+
+#podnaslov{
+    height: 50px;
+    width: 100%;
+    background-color: darkred;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 15px;
+}
+
+#meni{
+    width: 20%;
+    height: 600px;
+    background-color: darkblue  ;
+    float: left;
+    margin: 0;
+    border-width: 0;
+}
+
+#meni li a:link, #meni li a:visited, #meni li{
+    color: white;
+    text-decoration: underline;
+}
+
+#sredina{
+    background-color: white;
+    height: 600px;
+    text-align: center;
+    margin: 0;
+    border-width: 0;
+}
+
+iframe{
+    width: 80%;
+    background-color: white;
+    height: 600px;
+    text-align: center;
+    margin: 0;
+    border-width: 0;
+}
+
+.dugme{
+    text-align: center;
+    color: darkcyan;
+    font-weight: bold;
+}
+
+#centriraj{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+}
+
