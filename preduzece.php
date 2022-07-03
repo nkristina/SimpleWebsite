@@ -18,12 +18,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             exit;
         }
         ?>
-        <div class='header'><h1>Preduzece - Glavna Stranica</h1></div>
+        <div class='header'><h1>Preduzece</h1></div>
         <div id="meni">
+        <a id="naslov" href="preduzece.php">Meni</a>
         <ol>
-           <li><a href="preduzece.php">Meni</a></li>
+           <li>Pregled stanja</li>
+           <ol>
+               <li><a href="osnovniPodaci.php" target="frejm">Osnovni podaci</a></li>
+               <li><a href="racuni.php" target="frejm">Ziro racuni</a></li>
+               <li><a href="kase.php" target="frejm">Kase</a></li>
+           </ol>
            <li><a href="novaLozinka.php">Promeni lozinku</a></li>
-           <li><a href=" http://pizzabar.rs/contact/" target="frejm">Lokacije</a></li>
         </ol><br/>
         </div>
         <div id="sredina">

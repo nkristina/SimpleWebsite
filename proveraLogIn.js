@@ -145,3 +145,24 @@ function proveriPrvi(){
 
     return true;
 }
+
+function proveriRacun(){
+    var racuni = document.formaDodajR.racunD.value;
+    if (racuni==''){
+        alert("Niste uneli racun");
+        return false;
+    }
+    var regerac = /^\d{3}-\d{12}-\d{2}$/;
+    if(!regerac.test(racuni))
+    {
+        alert("Broj racuna nije u dobrom formatu");
+        return false;
+    }
+    
+    var banke = document.formaDodajR.bankaD.value;
+    if (banke==''){
+        alert("Niste uneli banku");
+        return false;
+    }
+    return true;
+}

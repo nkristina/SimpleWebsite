@@ -61,17 +61,30 @@ table{
 }
 
 #meni{
-    width: 20%;
+    width: 15%;
     height: 600px;
     background-color: darkblue  ;
     float: left;
     margin: 0;
     border-width: 0;
+    color: white;
+    font-size:16px;
+
 }
 
-#meni li a:link, #meni li a:visited, #meni li{
+#meni li a:link, #meni li a:visited{
     color: white;
     text-decoration: underline;
+}
+
+#meni a:link, #meni a:visited{
+    color: white;
+}
+
+#naslov{
+    font-size:30px;
+    text-align: center;
+    padding-left: 15px;
 }
 
 #sredina{
@@ -83,7 +96,7 @@ table{
 }
 
 iframe{
-    width: 80%;
+    width: 85%;
     background-color: white;
     height: 600px;
     text-align: center;
@@ -95,6 +108,14 @@ iframe{
     text-align: center;
     color: darkcyan;
     font-weight: bold;
+}
+
+table{
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    table-layout: fixed;
 }
 
 #centriraj{
