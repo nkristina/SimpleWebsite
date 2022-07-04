@@ -6,34 +6,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Preduzece-glavna</title>
+        <title>Admin-glavna</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="proveraLogIn.js"></script>
     </head>
     <body>
         <?php
         session_start();
-        if(!isset($_SESSION['tip']) || $_SESSION['tip']!='preduzece')
+        if(!isset($_SESSION['tip']) || $_SESSION['tip']!='admin')
         {  
             header('Location: ./index.php');
             exit;
         }
         ?>
-        <div class='header'><h1>Preduzece</h1></div>
+        <div class='header'><h1>Administrator</h1></div>
         <div id="meni">
-        <a id="naslov" href="preduzece.php">Meni</a>
+        <a id="naslov" href="admin.php">Meni</a>
         <ol>
-           <li>Pregled stanja</li>
-           <ol>
-               <li><a href="osnovniPodaci.php" target="frejm">Osnovni podaci</a></li>
-               <li><a href="racuni.php" target="frejm">Ziro racuni</a></li>
-               <li><a href="kase.php" target="frejm">Kase</a></li>
-           </ol>
-           <li><a href="novaLozinka.php">Promeni lozinku</a></li>
+            <li><a href="zahtevi.php" target="frejmA">Zahtevi</a></li>
+            <li><a href="dodajPreduzece.php" target="frejmA">Dodaj preduzece</a></li>
+            <li><a href="dodajKupca.php" target="frejmA">Dodaj kupca</a></li>
+            <li><a href="izvestaj.php" target="frejmA">Izvestaji</a></li>
+            <li><a href="novaLozinka.php">Promeni lozinku</a></li>
         </ol><br/>
         </div>
         <div id="sredina">
-        <iframe name="frejm">
+        <iframe name="frejmA">
         </iframe>
         </div>
         <div class='footer'>

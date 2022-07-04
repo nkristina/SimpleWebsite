@@ -18,6 +18,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <input type="submit" name="dodajR" value="Dodaj" class="dugme">
         </form>
         <h1>Pregled tekucih racuna</h1>
+        <?php session_start();
+            $kor_ime = $_SESSION['korisnik'];
+            include_once './dbconnect.php';
+            $result = mysqli_query($con, "select banka, br_racuna from racun where"
+                . " kor_ime='$kor_ime'");
+            if(mysqli_num_rows($result)>0){ ?>
         <table>
             <tr>
                 <th>Banka</th>
@@ -26,12 +32,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <th>&nbsp;</th>
             </tr>
             <?php
-            session_start();
-            $kor_ime = $_SESSION['korisnik'];
-            include_once './dbconnect.php';
-            $result = mysqli_query($con, "select banka, br_racuna from racun where"
-                . " kor_ime='$kor_ime'");
-            if(mysqli_num_rows($result)>0){
                 while($row = mysqli_fetch_assoc($result)){
                 ?>
                     <form action="" method="post">
@@ -58,6 +58,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         include_once './obrisi.php';
         include_once './izmeni.php';
         include_once './dodaj.php';
+        mysqli_close($con);
         ?>
     </body>
 </html>

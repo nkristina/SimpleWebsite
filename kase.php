@@ -22,6 +22,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <input type="submit" name="dodajK" value="Dodaj" class="dugme">
         </form>
         <h1>Pregled svih kasa</h1>
+        <?php
+            session_start();
+            $kor_ime = $_SESSION['korisnik'];
+            include_once './dbconnect.php';
+            $result = mysqli_query($con, "select tip, objekat, id from kasa where"
+                . " kor_ime='$kor_ime'");
+            if(mysqli_num_rows($result)>0){ ?>
         <table>
             <tr>
                 <th>Kasa</th>
@@ -30,12 +37,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <th>&nbsp;</th>
             </tr>
             <?php
-            session_start();
-            $kor_ime = $_SESSION['korisnik'];
-            include_once './dbconnect.php';
-            $result = mysqli_query($con, "select tip, objekat, id from kasa where"
-                . " kor_ime='$kor_ime'");
-            if(mysqli_num_rows($result)>0){
                 while($row = mysqli_fetch_assoc($result)){
                 ?>
                     <form action="" method="post">

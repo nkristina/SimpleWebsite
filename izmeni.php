@@ -60,4 +60,28 @@ if(isset($_POST['izmeniK'])){
          header('Refresh:0');
     }
 }
+
+// Osnovni podaci
+
+if(isset($_POST['update'])){
+    $ime = $_POST['ime'];
+    $kor_ime = $_SESSION['korisnik'];
+    $telefon = $_POST['telefon'];
+    $email = $_POST['email'];
+    $adresa = $_POST['adresa'];
+    $matbr = $_POST['matbr'];
+    if(isset($_POST['pdv'])) {
+        $pdv = 1;
+    }
+    else{
+        $pdv = 0;
+    }    
+    
+    $result2 = mysqli_query($con, "update preduzece set ime_odg_lica='$ime', mat_br='$matbr',"
+            . " email='$email', PDV=$pdv, telefon='$telefon' where kor_ime='$kor_ime'");
+    
+    if($result2){
+         header('Refresh:0');
+    }
+}
 ?>
