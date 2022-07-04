@@ -36,7 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
          
          <div name="registracija">
              <h3>Registrujte novo preduzece:</h3>
-             <form action="" method="post" name="formaRegistracija" onsubmit="return proveriReg();">
+             <form action="" method="post" name="formaRegistracija" onsubmit="return proveriReg(1);">
                  <table>
                      <tr>
                          <td>Ime i prezime odgovornog lica:</td>

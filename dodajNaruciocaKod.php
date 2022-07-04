@@ -5,8 +5,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
-if(isset($_POST['reg'])){
-    include_once './dbconnect.php';
+if(isset($_POST['regNaruc'])){
     $ime = $_POST['ime'];
     $kor_ime = $_POST['kor_ime'];
     $naziv = $_POST['nazivPreduzeca'];
@@ -16,6 +15,8 @@ if(isset($_POST['reg'])){
     $sifra = $_POST['lozinka'];
     $pib = $_POST['PIB'];
     $matbr = $_POST['matbr'];
+    $rabata = $_POST['rabata'];
+    $br_dana = $_POST['br_dana'];
     
     // Proveri da li postoji ime
     $result = mysqli_query($con, "select * from administrator as a, kupac as k, preduzece as p where"
@@ -45,7 +46,16 @@ if(isset($_POST['reg'])){
                                             . " values ('$kor_ime', '$naziv', '$sifra', '$ime', '$email', '$telefon', $pib, '$matbr', '$adresa', 'na cekanju')");
 
                 if($status){
-                    echo "Uspesno dodat u red za registraciju.";
+                    session_start();
+                    $kor_ime_tr = $_SESSION['korisnik'];
+                    $status2 = mysqli_query($con, "insert into narucioc (kor_ime, kor_imeN, broj_dana, rabata) "
+                                            . " values ('$kor_ime_tr', '$kor_ime', $br_dana, $rabata)");
+                    if($status2){
+                        echo "Uspesno dodat.";
+                    }
+                    else{
+                        echo "<span style='color: red'> Greska pri dodavanju narucioca! </span>";
+                    }
                 }
                 else {
                     echo "<span style='color: red'> Greska pri registraciji! </span>";
@@ -53,7 +63,6 @@ if(isset($_POST['reg'])){
             }
         }
     }
-    mysqli_close($con);
 }
 
 ?>

@@ -23,17 +23,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <div id="meni">
         <a id="naslov" href="preduzece.php">Meni</a>
         <ol>
-           <li>Pregled stanja</li>
-           <ol>
+           <li class="big">Pregled stanja</li> <br/>
+           <ol type="i">
                <li><a href="osnovniPodaci.php" target="frejm">Osnovni podaci</a></li>
                <li><a href="racuni.php" target="frejm">Ziro racuni</a></li>
                <li><a href="kase.php" target="frejm">Kase</a></li>
-           </ol>
-           <li><a href="novaLozinka.php">Promeni lozinku</a></li>
+           </ol> <br/>
+           <li class="big">Narucioci</li> <br/>
+           <ol type="i">
+               <li><a href="dodajNarucioca.php" target="frejm">Dodaj narucioca</a></li>
+               <li><a href="narucioci.php" target="frejm">Pregled narucioca</a></li>
+           </ol> <br/>
+           <li class="big"><a href="novaLozinka.php">Promeni lozinku</a></li>
         </ol><br/>
         </div>
         <div id="sredina">
-        <iframe name="frejm">
+        <iframe name="frejm" src="osnovniPodaci.php">
         </iframe>
         </div>
         <div class='footer'>

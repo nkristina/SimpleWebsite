@@ -21,17 +21,49 @@ function proveri() {
     return true;
 }
 
-function proveriReg() {
-    var loz = document.formaRegistracija.lozinka.value;
-    var loz2 = document.formaRegistracija.lozinka2.value;
-    var tel = document.formaRegistracija.telefon.value;
-    var pib = document.formaRegistracija.PIB.value;
-    var ime = document.formaRegistracija.ime.value;
-    var k_ime = document.formaRegistracija.kor_ime.value;
-    var email = document.formaRegistracija.email.value;
-    var nazivP = document.formaRegistracija.nazivPreduzeca.value;
-    var matbr = document.formaRegistracija.matbr.value;
-    var adr = document.formaRegistracija.drzava.value;
+function proveriReg(t) {
+    if(t==1){
+        var loz = document.formaRegistracija.lozinka.value;
+        var loz2 = document.formaRegistracija.lozinka2.value;
+        var tel = document.formaRegistracija.telefon.value;
+        var pib = document.formaRegistracija.PIB.value;
+        var ime = document.formaRegistracija.ime.value;
+        var k_ime = document.formaRegistracija.kor_ime.value;
+        var email = document.formaRegistracija.email.value;
+        var nazivP = document.formaRegistracija.nazivPreduzeca.value;
+        var matbr = document.formaRegistracija.matbr.value;
+        var adr = document.formaRegistracija.drzava.value;
+    }
+    else{
+        var loz = document.formaDodajNar.lozinka.value;
+        var loz2 = document.formaDodajNar.lozinka2.value;
+        var tel = document.formaDodajNar.telefon.value;
+        var pib = document.formaDodajNar.PIB.value;
+        var ime = document.formaDodajNar.ime.value;
+        var k_ime = document.formaDodajNar.kor_ime.value;
+        var email = document.formaDodajNar.email.value;
+        var nazivP = document.formaDodajNar.nazivPreduzeca.value;
+        var matbr = document.formaDodajNar.matbr.value;
+        var adr = document.formaDodajNar.drzava.value;
+        var rabata = document.formaDodajNar.rabata.value;
+        var br_dana = document.formaDodajNar.br_dana.value;
+        
+        if(rabata=='' || !br_dana)
+        {   alert("Niste popunili rabatu i broj dana.");
+            return false;
+        }
+        
+        if(isNaN(rabata)){
+            alert("Rabata mora da bude broj");
+            return false;
+        }
+        
+        var c = parseFloat(rabata);
+        if(c<0 || c>100){
+            alert("Rabata mora biti u opsegu od 0 do 100");
+            return false;
+        }
+    }
     
     if(loz=='' || loz2==''){
         alert("Niste uneli lozinku");
@@ -195,5 +227,44 @@ function proveriOsnovni(){
         alert("Mejl adresa nije u dobrom formatu!");
         return false;
     }
+    return true;
+}
+
+function proveriPIB(){
+    var pib = document.prekoPIB.pib2.value;
+    var rabata = document.prekoPIB.rabata2.value;
+    var dani = document.prekoPIB.br_dana2.value;
+    
+    if(!dani || rabata==''){
+        alert("Unesite PIB broj dana i rabatu.");
+        return false;
+    }
+    
+    if(isNaN(rabata)){
+        alert("Rabata mora da bude broj");
+        return false;
+    }
+    
+    var c = parseFloat(rabata);
+    if(c<0 || c>100){
+        alert("Rabata mora biti u opsegu od 0 do 100");
+        return false;
+    }
+            
+    if(pib==''){
+        alert("Unesite PIB za pretragu.");
+        return false;
+    }
+            
+    var pibreg = /^[1-9]\d{8}$/;
+    
+    if(!pibreg.test(pib))
+    {
+        alert("PIB nije u dobrom formatu!");
+        return false;
+    }
+    
+    
+    
     return true;
 }

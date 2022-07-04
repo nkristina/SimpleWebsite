@@ -136,6 +136,10 @@ table{
     background-color: lightgray;
 }
 
+.big{
+    font-size:20px;
+}
+
 #centriraj{
     display: flex;
     flex-direction: row;

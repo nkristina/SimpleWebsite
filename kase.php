@@ -63,6 +63,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         include_once './obrisi.php';
         include_once './izmeni.php';
         include_once './dodaj.php';
+        mysqli_close($con);
         ?>
     </body>
 </html>
