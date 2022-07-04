@@ -110,12 +110,30 @@ iframe{
     font-weight: bold;
 }
 
-table{
-    margin-left: 5px;
+.tabele{
+    width: 80%;
+    height:150px;
+    margin-right: 10%;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: white;
+    border: 1px solid lightblue;
     table-layout: fixed;
+    text-align: center;
+    vertical-align: center;
+}
+
+table{
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+#readOnly{
+    background-color: lightgray;
 }
 
 #centriraj{

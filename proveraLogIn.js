@@ -166,3 +166,34 @@ function proveriRacun(){
     }
     return true;
 }
+
+function proveriKasu(){
+    var lok = document.formaDodajK.objekatD.value;
+    if (lok==''){
+        alert("Niste uneli lokaciju");
+        return false;
+    }
+    return true;
+}
+        
+function proveriOsnovni(){
+    var tel = document.formaOsnovni.telefon.value;
+    var ime = document.formaOsnovni.ime.value;
+    var email = document.formaOsnovni.email.value;
+    var matbr = document.formaOsnovni.matbr.value;
+    var adr = document.formaOsnovni.adresa.value;
+    
+    if(tel=='' || ime=='' || email=='' || matbr=='' || adr==''){
+        alert("Niste uneli sva potrebna polja");
+        return false;
+    }
+    
+    var emailreg = /^\w+@\w{3,}\.\w{2,}$/;
+    
+    if(!emailreg.test(email))
+    {
+        alert("Mejl adresa nije u dobrom formatu!");
+        return false;
+    }
+    return true;
+}
