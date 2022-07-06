@@ -87,12 +87,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <?php 
         if(isset($_POST['kasaPlus'])){
             $_SESSION['brojKase']++;
+            header('Refresh:0');
         }
         if(isset($_POST['racunPlus'])){
             $_SESSION['brojRacune']++;
+            header('Refresh:0');
         }
         if(isset($_POST['sifraPlus'])){
             $_SESSION['brojSifre']++;
+            header('Refresh:0');
         }
         ?>
         <p>Mocicete da menjate ove podatke i kasnije.</p>

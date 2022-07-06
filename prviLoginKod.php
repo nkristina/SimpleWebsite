@@ -8,6 +8,7 @@
 if(isset($_POST['unesi'])){
     include_once './dbconnect.php';
     $sifre = $_POST['sifra'];
+    session_start();
     $kor_ime = $_SESSION['korisnik'];
     
     foreach($sifre as $sif){

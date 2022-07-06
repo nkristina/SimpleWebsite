@@ -44,13 +44,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <td><input type="submit" name='odbij' value='Odbij' class="dugme"></td>
                         </tr>
                     </form>
-                <?php }
-            }
+                <?php } ?>
+            </table> <?php
+            } 
             else
             {
                 echo "Nemate zahteva na cekanju.";
-            }?>    
-        </table>
+            }?>
         <?php
         mysqli_free_result($result);
         include_once './odobri.php';

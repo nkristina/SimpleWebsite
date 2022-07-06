@@ -33,7 +33,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
            <ol type="i">
                <li><a href="dodajNarucioca.php" target="frejm">Dodaj narucioca</a></li>
                <li><a href="narucioci.php" target="frejm">Pregled narucioca</a></li>
-           </ol> <br/>
+           </ol><br/>
+           <li class="big"><a href="roba.php" target="frejm">Robe i usluge</a></li><br/>
            <li class="big"><a href="novaLozinka.php">Promeni lozinku</a></li>
         </ol><br/>
         </div>
