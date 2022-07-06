@@ -24,11 +24,26 @@ if(isset($_POST['obrisiKasu'])){
 }
 
 if(isset($_POST['obrisiA'])){
+    ?> 
+<form action='' method='post'>
+    <?php echo "Da li ste sigurni da zelite da obrisete artikl?" ?> <br/>
+    <input type='hidden' value='<?php echo $_POST['idA'] ?>' name='idA'>
+    <input type="submit" value="DA" name="daA">
+    <input type="submit" value="NE" name="neA">
+</form>
+<?php }
+if(isset($_POST['daA'])){
     $id = $_POST['idA'];
     $result1 = mysqli_query($con, "delete from artikl where"
                 . " id='$id'");
     if($result1){
-         header('Refresh:0');
+        header('Refresh:0');
+    }
+    else{
+        echo "greska";
     }
 }
+if(isset($_POST['neA'])){
+    header('Refresh:0');
+    }
 ?>
