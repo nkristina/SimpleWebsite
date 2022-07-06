@@ -11,25 +11,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="proveraLogIn.js"></script>
     </head>
     <body>
-        <?php 
+        <?php
         session_start();
-        if(!isset($_SESSION['stranica']))
-            $_SESSION['stranica'] = 1;
+        if(!isset($_SESSION['strana'])){
+            $_SESSION['strana'] = 1;
+        }
         ?>
-        <h1>Artikli</h1
+        <h1>Artikli</h1>
         <?php
             $kor_ime = $_SESSION['korisnik'];
             include_once './dbconnect.php';
-            $idstr = $_SESSION['stranica'];
-            echo $idstr;
+            $resultBroj = mysqli_query($con, "select id, sifra, naziv from artikl where"
+                . " kor_ime='$kor_ime'");
+            $brojRedova = mysqli_num_rows($resultBroj);
+            $brojStranica = ceil($brojRedova/5);
+            mysqli_free_result($resultBroj);
+            $idstr = $_SESSION['strana'];
             $offset = 5*($idstr-1);
-            $result = mysqli_query($con, "select id, naziv, sifra from artikl where"
+            $result = mysqli_query($con, "select id, sifra, naziv, jedinica_mere, proizvodjac, stopa_poreza from artikl where"
                 . " kor_ime='$kor_ime' limit 5 offset $offset");
-            if(mysqli_num_rows($result)>0){?>
-        <table class='tabele'>
+            if(mysqli_num_rows($result)>0){ 
+        ?>
+        <form action="" method="post">
+            <?php echo "Ukupno redova: ".$brojRedova ?> &nbsp;
+            <input type="submit" value="<" name="levo">
+            <?php echo "strana ".$_SESSION['strana']."/".$brojStranica ?>
+            <input type="submit" value=">" name="desno">
+        </form>
+        <?php 
+            if(isset($_POST['desno'])){
+                if($_SESSION['strana']<$brojStranica) {
+                    $_SESSION['strana'] = $_SESSION['strana'] + 1;
+                    header('Refresh:0');
+                }
+            }
+            if(isset($_POST['levo'])){
+                if($_SESSION['strana']>1) {
+                    $_SESSION['strana'] = $_SESSION['strana'] - 1;
+                    header('Refresh:0');
+                }
+            }
+        ?>
+        <table class="tabele">
             <tr>
-                <th>Naziv</th>
                 <th>Sifra</th>
+                <th>Naziv</th>
+                <th>Jedinica mere</th>
+                <th>Stopa poreza [%]</th>
+                <th>Poizvodjac</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -38,39 +67,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ?>
                     <form action="" method="post">
                         <tr>
-                            <td><?php echo $row['naziv']?>
-                                <input type='hidden' value="<?php echo $row['id']?>" name='id'>
-                            </td>
                             <td><?php echo $row['sifra']?>
+                                <input type='hidden' value="<?php echo $row['id']?>" name='idA'>
                             </td>
-                            <td><input type="submit" name='obrisiRacun' value='Obrisi' class="dugme"></td>
-                            <td><input type="submit" name='izmeniRacun' value='Izmeni' class="dugme"></td>
+                            <td><?php echo $row['naziv']?>
+                            </td>
+                            <td><?php echo $row['jedinica_mere']?>
+                            </td>
+                            <td><?php echo $row['stopa_poreza']?>
+                            </td>
+                            <td><?php echo $row['proizvodjac']?>
+                            </td>
+                            <td><input type="submit" name='obrisiA' value='Obrisi' class="dugme"></td>
+                            <td><input type="submit" name='izmeniA' value='Izmeni' class="dugme"></td>
                         </tr>
                     </form>
                 <?php } ?>
-        </table> <?php
-            if(isset($_GET['desno'])){
-                echo "Plsss";
-                if($_SESSION['stranica']<2){
-                    $_SESSION['stranica']++;
-                    header('Refresh:0');
-                    }
-                }
-            }
+            </table>
+            <?php }
             else
             {
                 echo "Nema unetih artikla.";
-            }?>
-        <?php
-            /*if(isset($_POST['levo'])){
-                if($_SESSION['stranica']>1){
-                    $_SESSION['stranica']=$_SESSION['stranica']-1;
-                    header('Refresh:0');
             }
-        }*/
-        ?>
-        <?php
         mysqli_free_result($result);
+        include_once './obrisi.php';
         mysqli_close($con);
         ?>
     </body>

@@ -22,4 +22,13 @@ if(isset($_POST['obrisiKasu'])){
          header('Refresh:0');
     }
 }
+
+if(isset($_POST['obrisiA'])){
+    $id = $_POST['idA'];
+    $result1 = mysqli_query($con, "delete from artikl where"
+                . " id='$id'");
+    if($result1){
+         header('Refresh:0');
+    }
+}
 ?>
