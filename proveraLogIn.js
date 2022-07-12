@@ -264,7 +264,61 @@ function proveriPIB(){
         return false;
     }
     
+    return true;
+}
+
+function proveriArtikl(t){
     
+    if(t==1){
+        var naziv = document.artikl.naziv.value;
+        var sifra = document.artikl.sifra.value;
+        var jedinica = document.artikl.jedinica.value;
+        var carina = document.artikl.carina.value;
+        var barkod = document.artikl.barkod.value;
+        var max = document.artikl.maxz.value;
+        var min = document.artikl.minz.value;
+    }
+    else{
+        var naziv = document.artiklIzmena.naziv.value;
+        var sifra = document.artiklIzmena.sifra.value;
+        var jedinica = document.artiklIzmena.jedinica.value;
+        var carina = document.artiklIzmena.carina.value;
+        var barkod = document.artiklIzmena.barkod.value;
+        var max = document.artiklIzmena.maxz.value;
+        var min = document.artiklIzmena.minz.value;
+    }
+    
+    if(naziv=='' || sifra=='' || jedinica == ''){
+        alert('Niste uneli sva obavezna polja!');
+        return false;
+    }
+    
+    if(carina!='' && isNaN(carina)){
+        alert('Carinska tarifa mora da bude broj');
+        return false;
+    }
+    
+    var c = parseFloat(carina);
+    if(c<0 || c>100){
+        alert("Carina mora biti u opsegu od 0 do 100");
+        return false;
+    }
+    
+    if(barkod!='' && isNaN(barkod)){
+        alert('Barkod mora da bude broj');
+        return false;
+    }
+    
+    if(min!='' && isNaN(min)){
+        alert('Minimalne zalije mora da bude broj');
+        return false;
+    }
+    
+    if(max!='' && isNaN(max)){
+        alert('Maksimalne zalihe mora da bude broj');
+        return false;
+    }
     
     return true;
+    
 }

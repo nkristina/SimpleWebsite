@@ -140,6 +140,22 @@ table{
     font-size:20px;
 }
 
+.formica1{
+    border: 1px solid gray;
+    width: 80%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.formica2{
+    border: 1px dashed gray;
+    width: 80%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #centriraj{
     display: flex;
     flex-direction: row;

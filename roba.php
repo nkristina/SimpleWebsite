@@ -18,6 +18,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         }
         ?>
         <h1>Artikli</h1>
+        <form method='post'>
+            <input type="submit" name="noviA" value='Unos' class='dugme'>
+            <input type='hidden' value="<?php echo $_SESSION['korisnik']?>" name='preduzece'>
+        </form> <br/>
         <?php
             $kor_ime = $_SESSION['korisnik'];
             include_once './dbconnect.php';
@@ -79,7 +83,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <td><?php echo $row['proizvodjac']?>
                             </td>
                             <td><input type="submit" name='obrisiA' value='Obrisi' class="dugme"></td>
-                            <td><input type="submit" name='izmeniA' value='Izmeni' class="dugme"></td>
+                            <td><input type="submit" name='izmeniArtikl' value='Izmeni' class="dugme"></td>
                         </tr>
                     </form>
                 <?php } ?>
@@ -90,7 +94,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 echo "Nema unetih artikla.";
             }
         mysqli_free_result($result);
+        include_once './dodaj.php';
         include_once './obrisi.php';
+        include_once './izmeni.php';
         mysqli_close($con);
         ?>
     </body>
