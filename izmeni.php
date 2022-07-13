@@ -129,6 +129,37 @@ if(isset($_POST['izmeniArtikl'])){
         </table>
     </fieldset>
         <input type='submit' name="izmeniA" value='Izmeni' class='dugme'>
+    <fieldset class='formica2'> <legend>Cene i stanje robe</legend>
+    <?php $result = mysqli_query($con, "select * from objekti where id_proizvoda='$id'");
+            if(mysqli_num_rows($result)>0){ ?>
+        <table class="tabele">
+            <tr>
+                <th>Objekat</th>
+                <th>Nabavna cena [RSD]</th>
+                <th>Prodajna cena [RSD]</th>
+                <th>Stanje</th>
+                <th>Minimalna kolicina</th>
+                <th>Maksimalna kolicina</th>
+            </tr>
+            <?php
+                while($row = mysqli_fetch_assoc($result)){
+                ?>
+                <tr>
+                    <td><?php echo $row['objekat']?></td>
+                    <td><?php echo $row['cena_nab']?></td>
+                    <td><?php echo $row['cena_prod']?></td>
+                    <td><?php echo $row['stanje']?></td>
+                    <td><?php echo $row['min_kol']?></td>
+                    <td><?php echo $row['max_kol']?></td>
+                </tr>
+                <?php }
+            }
+            else
+            {
+                echo "Nema na stanju.";
+            }?>    
+        </table>
+        </fieldset>
     </fieldset>
 </form>
 <?php }

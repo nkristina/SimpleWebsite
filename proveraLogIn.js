@@ -322,3 +322,18 @@ function proveriArtikl(t){
     return true;
     
 }
+
+function proveriStavku(){
+    var min = document.stavka1.kolicina.value;
+    
+    if(min==''){
+        alert("Unesite kolicinu");
+        return false;
+    }
+    if(min!='' && isNaN(min)){
+        alert('Kolicina mora da bude broj');
+        return false;
+    }
+    
+    return true;
+}

@@ -26,8 +26,8 @@ if(isset($_POST['obrisiKasu'])){
 if(isset($_POST['obrisiA'])){
     ?> 
 <form action='' method='post'>
-    <?php echo "Da li ste sigurni da zelite da obrisete artikl?" ?> <br/>
-    <input type='hidden' value='<?php echo $_POST['idA'] ?>' name='idA'>
+    <?php echo "Da li ste sigurni da zelite da obrisete artikl?"?> <br/>
+    <input type='hidden' value='<?php echo $_POST['idA']?>' name='idA'>
     <input type="submit" value="DA" name="daA">
     <input type="submit" value="NE" name="neA">
 </form>

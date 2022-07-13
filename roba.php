@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <?php echo "strana ".$_SESSION['strana']."/".$brojStranica ?>
             <input type="submit" value=">" name="desno">
         </form>
-        <?php 
+        <?php
             if(isset($_POST['desno'])){
                 if($_SESSION['strana']<$brojStranica) {
                     $_SESSION['strana'] = $_SESSION['strana'] + 1;
