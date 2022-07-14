@@ -22,6 +22,7 @@ if(isset($_POST['login'])){
             session_start();
             $_SESSION['korisnik'] = $ime;
             $_SESSION['lozinka'] = $sifra;
+            $_SESSION['licna'] = $row['br_licnekarte'];
             session_start();
             $_SESSION['tip'] = 'kupac';
             header('Location: ./kupac.php');

@@ -23,12 +23,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <div id="meni">
         <a id="naslov" href="kupac.php">Meni</a>
         <ol>
-            <li><a href="pregledPred.php" target="frejmA">Pregled preduzeca</a></li>
-            <li><a href="raciniKupca.php" target="frejmA">Moji racuni</a></li>
+            <li><a href="pregledPred.php" target="frejmK">Pregled preduzeca</a></li>
+            <li><a href="racuniKupca.php" target="frejmK">Moji racuni</a></li>
         </ol><br/>
         </div>
         <div id="sredina">
-        <iframe name="frejmA">
+        <iframe name="frejmK" src="pregledPred.php">
         </iframe>
         </div>
         <div class='footer'>
