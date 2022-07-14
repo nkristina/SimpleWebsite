@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <hr/>
         <h2>Dodate stavke</h2>
         <?php $result = mysqli_query($con, "select a.naziv as naziv, s.kolicina as kolicina from stavka s, artikl a where"
-                . " id_r=0 and s.id_a=a.id");
+                . " id_r=0 and s.id_a=a.id and a.kor_ime='$kor_ime'");
         if(mysqli_num_rows($result)>0){?>
         <table class="tabele">
             <tr>
@@ -67,9 +67,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <td><?php echo $row['kolicina']?>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }?>
             </table>
-            <?php } ?>
+            <?php }?>
         <form method='post'>
             <input type='submit' value='Zatvaranje racuna' name='formiraj' class='dugme'>
         </form>

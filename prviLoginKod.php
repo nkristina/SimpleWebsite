@@ -17,7 +17,7 @@ if(isset($_POST['unesi'])){
                 . " ('$kor_ime','$sif')");
 
             if(!$result){
-                echo Greska;
+                echo "Greska - sifra";
                 exit;
             }
         }
@@ -29,7 +29,7 @@ if(isset($_POST['unesi'])){
                 . " kor_ime='$kor_ime'");
          
         if(!$result){
-            echo Greska;
+            echo "Greska - pdv";
             exit;
         }
     }

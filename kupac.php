@@ -23,11 +23,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <div id="meni">
         <a id="naslov" href="kupac.php">Meni</a>
         <ol>
-            <li><a href="zahtevi.php" target="frejmA">Zahtevi</a></li>
-            <li><a href="dodajPreduzece.php" target="frejmA">Dodaj preduzece</a></li>
-            <li><a href="dodajKupca.php" target="frejmA">Dodaj kupca</a></li>
-            <li><a href="izvestaj.php" target="frejmA">Izvestaji</a></li>
-            <li><a href="novaLozinka.php">Promeni lozinku</a></li>
+            <li><a href="pregledPred.php" target="frejmA">Pregled preduzeca</a></li>
+            <li><a href="raciniKupca.php" target="frejmA">Moji racuni</a></li>
         </ol><br/>
         </div>
         <div id="sredina">

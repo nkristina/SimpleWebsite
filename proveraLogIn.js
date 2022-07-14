@@ -337,3 +337,17 @@ function proveriStavku(){
     
     return true;
 }
+
+function proveriDatum(){
+    var datum = document.datumm.dan.value;
+    
+    var dreg = /^\d{4}-\d{2}-\d{2}$/;
+    
+    if(!dreg.test(datum))
+    {
+        alert("Datum nije u dobrom formatu!");
+        return false;
+    }
+    
+    return true;
+}

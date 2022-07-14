@@ -36,6 +36,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
            </ol><br/>
            <li class="big"><a href="roba.php" target="frejm">Robe i usluge</a></li><br/>
            <li class="big"><a href="stavka.php" target="frejm">Izdavanje racuna</a></li><br/>
+           <li class="big">Pregled izvestaja</li> <br/>
+           <ol type="i">
+               <li><a href="dnevniPazar.php" target="frejm">Dnevni pazar</a></li>
+               <li><a href="poStavkama.php" target="frejm">Izvestaj po stavkama</a></li>
+           </ol><br/>
            <li class="big"><a href="novaLozinka.php">Promeni lozinku</a></li>
         </ol><br/>
         </div>

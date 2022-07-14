@@ -11,6 +11,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="proveraLogIn.js"></script>
     </head>
     <body>
+        <?php
+            session_start();
+            $kor_ime = $_SESSION['korisnik'];
+            include_once './dbconnect.php';?>
         <h2>Formiranje racuna</h2>
         <form method='post'>
             Odaberite nacin placanja: <select name="nacin">
@@ -62,8 +66,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </table>
                     <input type='hidden' value='Kartica' name='nacin'>
                 </form>
-        <?php }else{
-            echo "TO DO";
-        }}?>
+        <?php }else{?>
+        <br/>Odaberi narucioca: <?php
+        $result = mysqli_query($con, "select p.naziv as naziv, p.adresa as adresa, p.kor_ime as kn from narucioc n, preduzece p"
+        . " where n.kor_imeN=p.kor_ime and n.kor_ime='$kor_ime'");
+        if(mysqli_num_rows($result)>0){ ?>
+        <table class="tabele">
+        <tr>
+            <th>Naziv</th>
+            <th>Adresa</th>
+            <th>&nbsp;</th>
+        </tr>
+        <?php
+            while($row = mysqli_fetch_assoc($result)){
+            ?>
+            <form action="" method="post">
+            <tr>
+                <td><?php echo $row['naziv']?>
+                    <input type='hidden' name="koje" value='<?php echo $row['kn']?>'></td>
+                <td><?php echo $row['adresa']?>
+                <td><input type="submit" name='uneo' value='Izaberi' class="dugme">
+                <input type='hidden' value='Virman' name='nacin'></td>
+            </tr>
+            </form>
+            <?php } ?>
+        </table>
+        <?php  }
+        else
+        {
+            echo "Ne postoje narucioci za vase preduzece.";
+        }
+        }}
+        include_once './formirajKod.php';
+        mysqli_close($con);?>
     </body>
 </html>
