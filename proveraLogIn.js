@@ -351,3 +351,32 @@ function proveriDatum(){
     
     return true;
 }
+
+function proveriAdmin(){
+    var datum1 = document.izvestaj.od.value;
+    var datum2 = document.izvestaj.do.value;
+    var ime = document.izvestaj.ime.value;
+    var pib = document.izvestaj.pib.value;
+    
+    var dreg = /^\d{4}-\d{2}-\d{2}$/;
+    
+    if(datum1=='' || datum2==''){
+        alert("Datumi su obavezni");
+        return false;
+    }
+    
+    if(!dreg.test(datum1) || !dreg.test(datum2))
+    {
+        alert("Datumi nisu u dobrom formatu!");
+        return false;
+    }
+    
+    var pibreg = /^[1-9]\d{8}$/;
+    
+    if(pib!='' && !pibreg.test(pib)){
+        alert('PIB nije u dobrom formatu');
+        return false;
+    }
+    
+    return true;
+}
